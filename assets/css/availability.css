@@ -1,0 +1,175 @@
+/*--------------------------------------------------------------
+# assets/css/availability.css
+#
+# A modern, responsive, and clean design for the Admin 
+# Availability Calendar page, matching the Dari admin theme.
+--------------------------------------------------------------*/
+
+/* --- Page Header & Card --- */
+.page-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+}
+
+/* --- Property Selector Dropdown --- */
+#houseSelect {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* --- Calendar Legend --- */
+.legend-item .legend-color-box {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.legend-color-box.available { background-color: #d1e7dd; border: 1px solid #a3cfbb; }
+.legend-color-box.pending { background-color: #fff3cd; border: 1px solid #ffe69c; }
+.legend-color-box.booked { background-color: #f8d7da; border: 1px solid #f1aeb5; }
+.legend-color-box.unavailable { background-color: #e2e3e5; border: 1px solid #d3d6d8; }
+
+
+/* --- FullCalendar General Customization --- */
+#calendar {
+    --fc-border-color: #dee2e6;
+    --fc-today-bg-color: rgba(0, 123, 255, 0.07);
+}
+
+/* --- Calendar Toolbar (Header) --- */
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.fc .fc-toolbar-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #343a40;
+}
+.fc .fc-button {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    font-size: 0.9em;
+    text-transform: capitalize;
+    box-shadow: none !important;
+    transition: all 0.2s ease-in-out;
+}
+.fc .fc-button:hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* --- Calendar Grid & Day Cells --- */
+.fc .fc-col-header-cell-cushion {
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 500;
+}
+.fc .fc-daygrid-day-number {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+.fc .fc-daygrid-day:hover .fc-daygrid-day-number {
+    background-color: #e9ecef;
+}
+
+/* Style for past, unselectable days */
+.fc .fc-day-past {
+    background-color: #f8f9fa;
+}
+.fc .fc-day-past .fc-daygrid-day-number {
+    color: #ced4da;
+}
+
+.fc .fc-day-today .fc-daygrid-day-number {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+}
+.fc .fc-daygrid-day.fc-day-selected {
+    background: rgba(42, 100, 120, 0.15);
+}
+
+
+/* --- Calendar Events (Status Colors) --- */
+.fc-event {
+    border: 1px solid transparent !important;
+    font-weight: 600;
+    padding: 5px 8px !important;
+    font-size: 0.85em !important;
+    border-radius: 6px !important;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.fc-event:hover {
+    filter: brightness(0.95);
+}
+
+/* Price color is now based on status */
+.fc-event-main {
+    color: #343a40 !important;
+}
+
+/* Styling for each status */
+.fc-event.event-available {
+    background-color: #d1e7dd !important;
+    border-color: #a3cfbb !important;
+}
+.fc-event.event-pending {
+    background-color: #fff3cd !important;
+    border-color: #ffe69c !important;
+}
+.fc-event.event-booked {
+    background-color: #f8d7da !important;
+    border-color: #f1aeb5 !important;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+.fc-event.event-unavailable {
+    background-color: #e2e3e5 !important;
+    border-color: #d3d6d8 !important;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .fc .fc-toolbar.fc-header-toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .fc .fc-toolbar-title {
+        font-size: 1.25em;
+        margin: 0.5rem 0;
+    }
+    .fc-event {
+        font-size: 0.7em !important;
+        text-align: center;
+    }
+    .fc .fc-daygrid-day-number {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8em;
+    }
+}
